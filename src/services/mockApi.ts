@@ -226,4 +226,37 @@ export const mockAchievements = {
 // API giả lập
 export const fetchCourses = () => Promise.resolve(mockCourses);
 export const fetchTestimonials = () => Promise.resolve(mockTestimonials);
-export const fetchAchievements = () => Promise.resolve(mockAchievements); 
+export const fetchAchievements = () => Promise.resolve(mockAchievements);
+
+export const fetchSuggestions = (userId: string, viewedIds: number[], favoriteIds: number[]) => {
+    const allIds = Array.from(new Set([...viewedIds, ...favoriteIds]));
+    const userCourses = mockCourses.filter(c => allIds.includes(c.id));
+    const keywords = Array.from(new Set(
+        userCourses.flatMap(c => [
+            ...(c.badge ? [c.badge.toLowerCase()] : []),
+            ...(c.title ? c.title.toLowerCase().split(' ') : []),
+            ...(c.author ? c.author.toLowerCase().split(' ') : []),
+        ])
+    ));
+    const suggestions = mockCourses
+        .filter(c => !allIds.includes(c.id))
+        .map(c => {
+            const courseKeywords = [
+                ...(c.badge ? [c.badge.toLowerCase()] : []),
+                ...(c.title ? c.title.toLowerCase().split(' ') : []),
+                ...(c.author ? c.author.toLowerCase().split(' ') : []),
+            ];
+            const matchCount = courseKeywords.filter(kw => keywords.includes(kw)).length;
+            return { ...c, matchCount };
+        })
+        .filter(c => c.matchCount > 0)
+        .sort((a, b) => b.matchCount - a.matchCount || b.rating - a.rating)
+        .slice(0, 4);
+    const fallback = mockCourses
+        .filter(c => !allIds.includes(c.id))
+        .sort((a, b) => b.rating - a.rating)
+        .slice(0, 4);
+    return new Promise(resolve =>
+        setTimeout(() => resolve(suggestions.length > 0 ? suggestions : fallback), 1200)
+    );
+}; 

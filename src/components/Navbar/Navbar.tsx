@@ -18,6 +18,9 @@ const Navbar: React.FC = () => {
                 <li>
                     <Link to="/history" style={{ color: location.pathname.startsWith('/history') ? '#304ffe' : undefined, fontWeight: location.pathname.startsWith('/history') ? 700 : 600, textDecoration: 'none' }}>Lịch sử xem</Link>
                 </li>
+                <li>
+                    <Link to="/suggestions" style={{ color: location.pathname.startsWith('/suggestions') ? '#304ffe' : undefined, fontWeight: location.pathname.startsWith('/suggestions') ? 700 : 600, textDecoration: 'none' }}>Gợi ý AI</Link>
+                </li>
             </ul>
             <div className={styles.actions}>
                 <Button
