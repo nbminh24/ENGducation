@@ -7,8 +7,13 @@ const Navbar: React.FC = () => {
     const location = useLocation();
     return (
         <nav className={styles.navbar}>
-            <div className={styles.logo}>ENGducation</div>
+            <Link to="/" className={styles.logo} style={{ textDecoration: 'none', color: 'inherit' }}>
+                ENGducation
+            </Link>
             <ul className={styles.menu}>
+                <li>
+                    <Link to="/" style={{ color: location.pathname === '/' ? '#304ffe' : undefined, fontWeight: location.pathname === '/' ? 700 : 600, textDecoration: 'none' }}>Trang chủ</Link>
+                </li>
                 <li>
                     <Link to="/courses" style={{ color: location.pathname.startsWith('/courses') ? '#304ffe' : undefined, fontWeight: location.pathname.startsWith('/courses') ? 700 : 600, textDecoration: 'none' }}>Khóa học</Link>
                 </li>
@@ -20,6 +25,9 @@ const Navbar: React.FC = () => {
                 </li>
                 <li>
                     <Link to="/suggestions" style={{ color: location.pathname.startsWith('/suggestions') ? '#304ffe' : undefined, fontWeight: location.pathname.startsWith('/suggestions') ? 700 : 600, textDecoration: 'none' }}>Đề xuất</Link>
+                </li>
+                <li>
+                    <Link to="/my-courses" style={{ color: location.pathname.startsWith('/my-courses') ? '#304ffe' : undefined, fontWeight: location.pathname.startsWith('/my-courses') ? 700 : 600, textDecoration: 'none' }}>Của tôi</Link>
                 </li>
             </ul>
             <div className={styles.actions}>

@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
                 <div className={styles.copyright}>
-                    © 2024 ENGducation. Tất cả quyền được bảo lưu.
+                    © 2025 ENGducation. Tất cả quyền được bảo lưu.
                 </div>
             </div>
         </footer>

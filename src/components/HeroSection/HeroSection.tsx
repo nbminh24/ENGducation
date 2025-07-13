@@ -1,11 +1,18 @@
 import React from 'react';
 import styles from './HeroSection.module.scss';
 import { Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
 import DevicesIcon from '@mui/icons-material/Devices';
 
 const HeroSection: React.FC = () => {
+    const navigate = useNavigate();
+
+    const handleExploreCourses = () => {
+        navigate('/courses');
+    };
+
     return (
         <section className={styles.hero}>
             <div className={styles.content}>
@@ -29,7 +36,12 @@ const HeroSection: React.FC = () => {
                         <div className={styles.text}>Học trên mọi thiết bị</div>
                     </div>
                 </div>
-                <Button variant="contained" size="large" className={styles.ctaBtn}>
+                <Button
+                    variant="contained"
+                    size="large"
+                    className={styles.ctaBtn}
+                    onClick={handleExploreCourses}
+                >
                     Khám phá các khóa học
                 </Button>
             </div>

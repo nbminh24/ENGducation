@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './CourseDetailHeader.module.scss';
 import StarIcon from '@mui/icons-material/Star';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PersonIcon from '@mui/icons-material/Person';
 import GroupIcon from '@mui/icons-material/Group';
+import { useMyCourses } from '../../hooks/useMyCourses';
 
 interface CourseDetailHeaderProps {
     course: {
+        id: number;
         image?: string;
         title: string;
         rating?: number;
@@ -24,6 +26,9 @@ interface CourseDetailHeaderProps {
 
 const CourseDetailHeader: React.FC<CourseDetailHeaderProps> = ({ course }) => {
     const percentOff = course.oldPrice && course.price ? Math.round(100 - (course.price / course.oldPrice) * 100) : 0;
+    const { isRegistered, registerCourse } = useMyCourses();
+    const registered = isRegistered(course.id);
+
     return (
         <div className={styles.headerCard}>
             {/* Image + Badges */}
@@ -66,7 +71,14 @@ const CourseDetailHeader: React.FC<CourseDetailHeaderProps> = ({ course }) => {
                     {percentOff > 0 && (
                         <span className={styles.saveBadge}>Tiết kiệm {percentOff}%</span>
                     )}
-                    <button className={styles.buyBtn}>Mua ngay</button>
+                    <button
+                        className={styles.buyBtn}
+                        disabled={registered}
+                        style={registered ? { background: '#b0b3c6', color: '#fff', cursor: 'not-allowed' } : {}}
+                        onClick={() => !registered && registerCourse(course.id)}
+                    >
+                        {registered ? 'Đã đăng ký' : 'Đăng ký'}
+                    </button>
                 </div>
                 {course.description && (
                     <div className={styles.shortDesc}>{course.description}</div>
