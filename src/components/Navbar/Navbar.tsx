@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styles from './Navbar.module.scss';
 import { Button } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
@@ -6,6 +6,24 @@ import { Link, useLocation } from 'react-router-dom';
 const Navbar: React.FC = () => {
     const location = useLocation();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const navRef = useRef<HTMLDivElement>(null);
+
+    // Đóng menu khi click ra ngoài
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (
+                isMobileMenuOpen &&
+                navRef.current &&
+                !navRef.current.contains(event.target as Node)
+            ) {
+                setIsMobileMenuOpen(false);
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isMobileMenuOpen]);
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -16,11 +34,10 @@ const Navbar: React.FC = () => {
     };
 
     return (
-        <nav className={styles.navbar}>
+        <nav className={styles.navbar} ref={navRef}>
             <Link to="/" className={styles.logo} style={{ textDecoration: 'none', color: 'inherit' }}>
                 ENGducation
             </Link>
-
             {/* Mobile menu button */}
             <button
                 className={styles.mobileMenuButton}
@@ -29,7 +46,6 @@ const Navbar: React.FC = () => {
             >
                 <span className={`${styles.hamburger} ${isMobileMenuOpen ? styles.active : ''}`}></span>
             </button>
-
             {/* Desktop menu */}
             <ul className={`${styles.menu} ${styles.desktopMenu}`}>
                 <li>
@@ -51,8 +67,7 @@ const Navbar: React.FC = () => {
                     <Link to="/my-courses" style={{ color: location.pathname.startsWith('/my-courses') ? '#304ffe' : undefined, fontWeight: location.pathname.startsWith('/my-courses') ? 700 : 600, textDecoration: 'none' }}>Của tôi</Link>
                 </li>
             </ul>
-
-            {/* Mobile menu */}
+            {/* Mobile menu dropdown (subtab) */}
             <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.active : ''}`}>
                 <ul className={styles.mobileMenuList}>
                     <li>
@@ -75,7 +90,6 @@ const Navbar: React.FC = () => {
                     </li>
                 </ul>
             </div>
-
             <div className={styles.actions}>
                 <Button
                     variant="outlined"
