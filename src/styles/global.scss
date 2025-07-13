@@ -1,4 +1,5 @@
 @import './variables.scss';
+@import './responsive.scss';
 
 /* Reset CSS */
 * {
@@ -34,4 +35,18 @@ ul {
 img {
     max-width: 100%;
     display: block;
+}
+
+/* Responsive viewport meta tag should be in index.html */
+/* Ensure proper scaling on mobile devices */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
 }

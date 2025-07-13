@@ -1,46 +1,199 @@
-# Getting Started with Create React App
+# ENGducation - Sàn thương mại khóa học tiếng Anh
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![ENGducation](https://img.shields.io/badge/ENGducation-Education%20Marketplace-blue)
+![React](https://img.shields.io/badge/React-18.2.0-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)
+![SCSS](https://img.shields.io/badge/SCSS-Styling-orange)
+![Responsive](https://img.shields.io/badge/Responsive-Mobile%20First-green)
 
-## Available Scripts
+## 📋 Tổng quan
 
-In the project directory, you can run:
+ENGducation là một sàn thương mại khóa học tiếng Anh hiện đại, được xây dựng với React và TypeScript. Nền tảng kết nối người học với các khóa học chất lượng cao, cung cấp trải nghiệm mua sắm và học tập tương tác với chatbot AI thông minh và giao diện responsive trên mọi thiết bị.
 
-### `npm start`
+## 🚀 Tính năng chính
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 🛒 **Sàn thương mại khóa học**
+- ✅ **Catalog đa dạng** với hàng trăm khóa học từ các giảng viên uy tín
+- ✅ **Hệ thống đánh giá** và reviews từ học viên thực tế
+- ✅ **Tìm kiếm và lọc** thông minh theo level, giá, rating
+- ✅ **Giỏ hàng và thanh toán** tích hợp
+- ✅ **Khuyến mãi và voucher** hệ thống
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 🎓 **Quản lý khóa học**
+- ✅ **Chi tiết khóa học** với curriculum, preview, instructor info
+- ✅ **Video preview** và sample lessons
+- ✅ **Progress tracking** và completion certificates
+- ✅ **Discussion forums** và Q&A
+- ✅ **Download materials** và resources
 
-### `npm test`
+### 🤖 **Chatbot AI thông minh**
+- ✅ **AI đọc và phân tích** dữ liệu mock courses
+- ✅ **Xử lý ngôn ngữ tự nhiên** để hiểu câu hỏi người dùng
+- ✅ **Tư vấn khóa học** phù hợp với nhu cầu và budget
+- ✅ **So sánh khóa học** và đưa ra gợi ý tối ưu
+- ✅ **Hỗ trợ mua hàng** và giải đáp thắc mắc
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 📱 **Responsive Design**
+- ✅ **Mobile-first approach** với breakpoints chuẩn
+- ✅ **Hamburger menu** cho mobile với animation
+- ✅ **Touch-friendly** interface cho mua sắm
+- ✅ **Adaptive layouts** cho mọi kích thước màn hình
 
-### `npm run build`
+### 🎨 **UI/UX hiện đại**
+- ✅ **Glassmorphism design** với backdrop blur
+- ✅ **Smooth animations** và transitions
+- ✅ **Material-UI components** tích hợp
+- ✅ **Shopping cart** và checkout flow
+- ✅ **Loading states** và error handling
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🔍 **Tính năng tương tác**
+- ✅ **Wishlist** và favorite courses
+- ✅ **Purchased courses**
+- ✅ **Reviews và ratings** system
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🛠 Công nghệ sử dụng
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Frontend
+- **React 18.2.0** - UI Framework
+- **TypeScript 5.0+** - Type safety
+- **SCSS/Sass** - Advanced styling
+- **Material-UI** - Component library
+- **React Router** - Navigation
 
-### `npm run eject`
+### E-commerce & AI
+- **Mock API** - Simulated backend
+- **AI Processing** - Course data analysis
+- **Natural Language Processing** - Chatbot intelligence
+- **Shopping Cart** - E-commerce functionality
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Development
+- **Create React App** - Build tool
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📦 Cài đặt từ GitHub
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Yêu cầu hệ thống
+- Node.js 16.0+ 
+- npm 8.0+ hoặc yarn 1.22+
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Bước 1: Clone repository
+```bash
+git clone https://github.com/your-username/fe_engducation.git
+cd fe_engducation
+```
 
-## Learn More
+### Bước 2: Cài đặt dependencies
+```bash
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Bước 3: Chạy ứng dụng
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🤖 Chatbot AI
+
+### Cách hoạt động
+Chatbot AI của ENGducation không chỉ xử lý logic đơn giản mà còn:
+
+1. **Đọc và phân tích dữ liệu khóa học**
+   - AI đọc toàn bộ nội dung mock courses
+   - Phân tích cấu trúc, giá cả, rating
+   - Hiểu context và mục tiêu học tập
+
+2. **Xử lý ngôn ngữ tự nhiên**
+   - Hiểu câu hỏi của người dùng
+   - Phân tích intent và entities
+   - Tạo response phù hợp
+
+3. **Tư vấn mua hàng thông minh**
+   - Dựa trên level và budget
+   - So sánh các khóa học tương tự
+   - Đề xuất khóa học phù hợp nhất
+
+### Ví dụ tương tác
+```
+User: "Tôi muốn học tiếng Anh giao tiếp với budget 500k"
+AI: "Tôi thấy bạn quan tâm đến giao tiếp với budget 500k. Dựa trên dữ liệu, tôi đề xuất:
+- Khóa 'English Conversation Basics' (450k, 4.5⭐)
+- Khóa 'Business English Communication' (480k, 4.8⭐)
+- Khóa 'Speaking Confidence Builder' (420k, 4.3⭐)
+
+Khóa nào phù hợp với bạn nhất?"
+```
+
+## 📱 Responsive Design
+
+### Breakpoints
+- **XS**: ≤ 480px (Mobile phones)
+- **SM**: ≤ 768px (Tablets) 
+- **MD**: ≤ 900px (Small laptops)
+- **LG**: ≤ 1200px (Desktop)
+- **XL**: ≤ 1400px (Large screens)
+
+### Tính năng responsive
+- ✅ Hamburger menu cho mobile
+- ✅ Mobile menu overlay với animation
+- ✅ Responsive grid layouts
+- ✅ Adaptive typography
+- ✅ Touch-friendly shopping experience
+
+## 🚀 Scripts có sẵn
+
+### Development
+```bash
+npm start          # Chạy development server
+npm test           # Chạy test suite
+npm run build      # Build production
+npm run eject      # Eject CRA (không khuyến khích)
+```
+
+### Build & Deploy
+```bash
+npm run build      # Tạo production build
+npm run deploy     # Deploy lên Netlify (nếu có)
+```
+
+## 📁 Cấu trúc project
+
+```
+src/
+├── components/          # React components
+│   ├── Navbar/         # Navigation
+│   ├── HeroSection/    # Landing section
+│   ├── CourseList/     # Course catalog
+│   ├── CourseDetail/   # Course pages
+│   ├── ChatbotPopup/   # AI Chatbot
+│   ├── ShoppingCart/   # E-commerce
+│   └── ...
+├── screens/            # Page components
+├── services/           # API & AI services
+├── hooks/              # Custom React hooks
+├── styles/             # Global styles & variables
+└── assets/             # Images & icons
+```
+
+## 🎯 Roadmap
+
+### Phase 1 (Current) ✅
+- [x] Responsive design
+- [x] Chatbot AI basic
+- [x] Course catalog
+- [x] User interface
+
+### Phase 2 (Planned)
+- [ ] Real backend integration
+- [ ] Payment gateway integration
+- [ ] Advanced AI features
+- [ ] User authentication
+- [ ] Order management
+
+### Phase 3 (Future)
+- [ ] Mobile app
+- [ ] Advanced analytics
+- [ ] Social features
+- [ ] Gamification
+- [ ] Affiliate system
+

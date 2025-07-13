@@ -1,0 +1,187 @@
+// Responsive breakpoints
+$breakpoints: (
+    xs: 480px,
+    sm: 768px,
+    md: 900px,
+    lg: 1200px,
+    xl: 1400px
+);
+
+// Mixins for responsive design
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Unknown breakpoint: #{$breakpoint}";
+    }
+}
+
+@mixin respond-above($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Unknown breakpoint: #{$breakpoint}";
+    }
+}
+
+// Utility classes for responsive
+.hide-mobile {
+    @include respond-to(sm) {
+        display: none !important;
+    }
+}
+
+.show-mobile {
+    display: none !important;
+
+    @include respond-to(sm) {
+        display: block !important;
+    }
+}
+
+.hide-tablet {
+    @include respond-to(md) {
+        display: none !important;
+    }
+}
+
+.show-tablet {
+    display: none !important;
+
+    @include respond-to(md) {
+        display: block !important;
+    }
+}
+
+// Responsive text utilities
+.text-responsive {
+    font-size: 1rem;
+
+    @include respond-to(xs) {
+        font-size: 0.875rem;
+    }
+
+    @include respond-to(sm) {
+        font-size: 0.9375rem;
+    }
+
+    @include respond-to(md) {
+        font-size: 1rem;
+    }
+
+    @include respond-to(lg) {
+        font-size: 1.0625rem;
+    }
+}
+
+// Responsive spacing utilities
+.p-responsive {
+    padding: 1rem;
+
+    @include respond-to(xs) {
+        padding: 0.5rem;
+    }
+
+    @include respond-to(sm) {
+        padding: 0.75rem;
+    }
+
+    @include respond-to(md) {
+        padding: 1rem;
+    }
+
+    @include respond-to(lg) {
+        padding: 1.25rem;
+    }
+}
+
+.m-responsive {
+    margin: 1rem;
+
+    @include respond-to(xs) {
+        margin: 0.5rem;
+    }
+
+    @include respond-to(sm) {
+        margin: 0.75rem;
+    }
+
+    @include respond-to(md) {
+        margin: 1rem;
+    }
+
+    @include respond-to(lg) {
+        margin: 1.25rem;
+    }
+}
+
+// Responsive grid utilities
+.grid-responsive {
+    display: grid;
+    gap: 1rem;
+
+    @include respond-to(xs) {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    @include respond-to(sm) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    @include respond-to(md) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    @include respond-to(lg) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+// Responsive flex utilities
+.flex-responsive {
+    display: flex;
+
+    @include respond-to(xs) {
+        flex-direction: column;
+    }
+
+    @include respond-to(sm) {
+        flex-direction: row;
+    }
+}
+
+// Container responsive
+.container-responsive {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @include respond-to(xs) {
+        padding: 0 0.5rem;
+    }
+
+    @include respond-to(sm) {
+        padding: 0 0.75rem;
+    }
+
+    @include respond-to(md) {
+        padding: 0 1rem;
+    }
+
+    @include respond-to(lg) {
+        padding: 0 1.25rem;
+    }
+}
