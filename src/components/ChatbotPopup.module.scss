@@ -139,6 +139,26 @@
     gap: 12px;
 }
 
+.skeleton {
+    width: 80%;
+    height: 38px;
+    background: linear-gradient(90deg, #f3f3f3 25%, #e0e3eb 50%, #f3f3f3 75%);
+    background-size: 200% 100%;
+    border-radius: 16px;
+    margin: 8px 0;
+    animation: shimmer 1.2s infinite linear;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
 @media (max-width: 600px) {
     .popup {
         right: 2vw;

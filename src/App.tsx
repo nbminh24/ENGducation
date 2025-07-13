@@ -7,6 +7,7 @@ import FavoriteCoursesScreen from './screens/FavoriteCoursesScreen';
 import HistoryScreen from './screens/HistoryScreen';
 import SuggestionsScreen from './screens/SuggestionsScreen';
 import ChatbotPopup from './components/ChatbotPopup';
+import Toast from './components/Toast';
 import './styles/global.scss';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/suggestions" element={<SuggestionsScreen />} />
       </Routes>
       <ChatbotPopup />
+      <Toast />
     </Router>
   );
 }

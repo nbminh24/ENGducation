@@ -1,0 +1,45 @@
+.toastContainer {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.toast {
+    background: #fff;
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(53, 64, 232, 0.13);
+    padding: 14px 28px;
+    min-width: 180px;
+    max-width: 320px;
+    animation: fadeInOut 2.5s;
+    opacity: 0.98;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}

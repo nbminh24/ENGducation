@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import HeroSection from '../../components/HeroSection/HeroSection';
-import CourseList from '../../components/CourseList/CourseList';
+import FeaturedCourseList from '../../components/CourseList/FeaturedCourseList';
 import Achievements from '../../components/Achievements/Achievements';
 import Testimonials from '../../components/Testimonials/Testimonials';
 import Newsletter from '../../components/Newsletter/Newsletter';
@@ -13,7 +13,7 @@ const HomeScreen: React.FC = () => {
         <>
             <Navbar />
             <HeroSection />
-            <CourseList search={search} setSearch={setSearch} showSearch={false} />
+            <FeaturedCourseList search={search} setSearch={setSearch} />
             <Achievements />
             <Testimonials />
             <Newsletter />

@@ -129,6 +129,136 @@ export const mockCourses = [
         duration: '9 giờ',
         badge: 'Listening',
     },
+    {
+        id: 9,
+        title: 'IELTS Speaking Masterclass',
+        description: 'Luyện nói IELTS với giám khảo thực tế',
+        author: 'Sarah Johnson',
+        price: 599000,
+        oldPrice: 999000,
+        rating: 4.9,
+        image: '/product/course2.jpg',
+        lessons: 28,
+        duration: '16 giờ',
+        badge: 'IELTS',
+    },
+    {
+        id: 10,
+        title: 'Tiếng Anh Cho Trẻ Em',
+        description: 'Phương pháp học tiếng Anh vui nhộn cho trẻ 6-12 tuổi',
+        author: 'Emma Wilson',
+        price: 199000,
+        oldPrice: 399000,
+        rating: 4.8,
+        image: '/product/course2.jpg',
+        lessons: 20,
+        duration: '12 giờ',
+        badge: 'Kids',
+    },
+    {
+        id: 11,
+        title: 'Medical English',
+        description: 'Tiếng Anh chuyên ngành y tế cho bác sĩ, y tá',
+        author: 'Dr. Michael Chen',
+        price: 449000,
+        oldPrice: 799000,
+        rating: 4.7,
+        image: '/product/course2.jpg',
+        lessons: 24,
+        duration: '15 giờ',
+        badge: 'Medical',
+    },
+    {
+        id: 12,
+        title: 'TOEIC Speaking & Writing',
+        description: 'Luyện thi TOEIC SW với chiến lược hiệu quả',
+        author: 'David Kim',
+        price: 399000,
+        oldPrice: 699000,
+        rating: 4.6,
+        image: '/product/course2.jpg',
+        lessons: 22,
+        duration: '13 giờ',
+        badge: 'TOEIC',
+    },
+    {
+        id: 13,
+        title: 'English for IT Professionals',
+        description: 'Tiếng Anh cho dân IT, phỏng vấn công ty nước ngoài',
+        author: 'Alex Thompson',
+        price: 349000,
+        oldPrice: 649000,
+        rating: 4.8,
+        image: '/product/course2.jpg',
+        lessons: 18,
+        duration: '10 giờ',
+        badge: 'IT',
+    },
+    {
+        id: 14,
+        title: 'Academic Writing',
+        description: 'Viết học thuật cho sinh viên đại học, nghiên cứu sinh',
+        author: 'Prof. Lisa Anderson',
+        price: 299000,
+        oldPrice: 549000,
+        rating: 4.5,
+        image: '/product/course2.jpg',
+        lessons: 16,
+        duration: '8 giờ',
+        badge: 'Academic',
+    },
+    {
+        id: 15,
+        title: 'English for Sales & Marketing',
+        description: 'Tiếng Anh chuyên ngành bán hàng và marketing',
+        author: 'Jennifer Lee',
+        price: 379000,
+        oldPrice: 679000,
+        rating: 4.7,
+        image: '/product/course2.jpg',
+        lessons: 20,
+        duration: '12 giờ',
+        badge: 'Sales',
+    },
+    {
+        id: 16,
+        title: 'Conversational English Advanced',
+        description: 'Giao tiếp nâng cao với người bản xứ',
+        author: 'James Wilson',
+        price: 279000,
+        oldPrice: 479000,
+        rating: 4.8,
+        image: '/product/course2.jpg',
+        lessons: 14,
+        duration: '9 giờ',
+        badge: 'Advanced',
+    },
+    {
+        id: 17,
+        title: 'English Grammar Mastery',
+        description: 'Nắm vững ngữ pháp tiếng Anh từ cơ bản đến nâng cao',
+        author: 'Maria Garcia',
+        price: 229000,
+        oldPrice: 429000,
+        rating: 4.6,
+        image: '/product/course2.jpg',
+        lessons: 26,
+        duration: '14 giờ',
+        badge: 'Grammar',
+    },
+    {
+        id: 18,
+        title: 'English for Customer Service',
+        description: 'Tiếng Anh dịch vụ khách hàng chuyên nghiệp',
+        author: 'Robert Taylor',
+        price: 259000,
+        oldPrice: 459000,
+        rating: 4.7,
+        image: '/product/course2.jpg',
+        lessons: 16,
+        duration: '8 giờ',
+        badge: 'Service',
+    },
 ];
 
 // Testimonials
@@ -220,13 +350,41 @@ export const mockAchievements = {
     teachers: 120,
     students: 25000,
     classes: 1800,
-    courses: 35,
+    courses: 45,
 };
 
 // API giả lập
 export const fetchCourses = () => Promise.resolve(mockCourses);
 export const fetchTestimonials = () => Promise.resolve(mockTestimonials);
 export const fetchAchievements = () => Promise.resolve(mockAchievements);
+
+// API cho Home Screen - chỉ lấy 8 khóa học cố định (quảng cáo)
+export const fetchFeaturedCourses = () => {
+    // Lấy 8 khóa học có rating cao nhất để quảng cáo
+    const featuredCourses = mockCourses
+        .sort((a, b) => b.rating - a.rating)
+        .slice(0, 8);
+    return Promise.resolve(featuredCourses);
+};
+
+// API cho Course List với phân trang
+export const fetchCoursesWithPagination = (page: number = 1, limit: number = 12) => {
+    const startIndex = (page - 1) * limit;
+    const endIndex = startIndex + limit;
+    const paginatedCourses = mockCourses.slice(startIndex, endIndex);
+    const totalPages = Math.ceil(mockCourses.length / limit);
+
+    return Promise.resolve({
+        courses: paginatedCourses,
+        pagination: {
+            currentPage: page,
+            totalPages,
+            totalCourses: mockCourses.length,
+            hasNextPage: page < totalPages,
+            hasPrevPage: page > 1
+        }
+    });
+};
 
 export const fetchSuggestions = (userId: string, viewedIds: number[], favoriteIds: number[]) => {
     const allIds = Array.from(new Set([...viewedIds, ...favoriteIds]));

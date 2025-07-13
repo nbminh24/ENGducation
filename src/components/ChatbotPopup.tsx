@@ -66,7 +66,16 @@ const ChatbotPopup: React.FC = () => {
             let displayText = text.replace(/\[\s*\d+(?:\s*,\s*\d+)*\s*\]/g, '').replace(/\n{2,}/g, '\n').trim();
             setMessages(msgs => [...msgs, { role: 'bot', text: displayText, ids }]);
         } catch {
-            setMessages(msgs => [...msgs, { role: 'bot', text: 'Đã xảy ra lỗi khi gọi AI.' }]);
+            // Fallback: trả lời thân thiện + 1 card product ngẫu nhiên
+            const fallbackCourse = mockCourses[Math.floor(Math.random() * mockCourses.length)];
+            setMessages(msgs => [
+                ...msgs,
+                {
+                    role: 'bot',
+                    text: 'Xin lỗi, hiện tại mình chưa thể tư vấn AI. Bạn có thể tham khảo khoá học "' + fallbackCourse.title + '" nhé! Nếu cần tư vấn thêm, hãy thử lại sau hoặc liên hệ hỗ trợ. Chúc bạn học tốt!',
+                    ids: [fallbackCourse.id]
+                }
+            ]);
         }
         setLoading(false);
         setTimeout(() => messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
@@ -94,7 +103,7 @@ const ChatbotPopup: React.FC = () => {
                                 )}
                             </div>
                         ))}
-                        {loading && <div className={styles.botMsg}>Đang trả lời...</div>}
+                        {loading && <div className={styles.skeleton}></div>}
                         <div ref={messagesEndRef} />
                     </div>
                     <div className={styles.inputRow}>

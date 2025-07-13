@@ -44,6 +44,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
     const handleFavorite = (e: React.MouseEvent) => {
         e.stopPropagation();
         toggleFavorite(course.id);
+        window.dispatchEvent(new CustomEvent('toast', { detail: isFavorite ? 'Đã bỏ khỏi danh sách yêu thích!' : 'Đã thêm vào danh sách yêu thích!' }));
     };
     const { addViewedCourse } = useViewedCourses();
     return (

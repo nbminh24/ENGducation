@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import Newsletter from '../../components/Newsletter/Newsletter';
-import { fetchCourses } from '../../services/mockApi';
+import { fetchCoursesWithPagination } from '../../services/mockApi';
 import CourseCatalogHeader from '../../components/CourseCatalog/CourseCatalogHeader';
 import CourseCatalogSidebar from '../../components/CourseCatalog/CourseCatalogSidebar';
 import CourseList from '../../components/CourseList/CourseList';
@@ -13,7 +13,7 @@ interface FilterState {
     topic?: string;
 }
 
-const PAGE_SIZE = 9;
+const PAGE_SIZE = 12; // 3 hàng × 4 cột
 
 const CourseCatalogScreen: React.FC = () => {
     const [courses, setCourses] = useState<any[]>([]);
@@ -22,14 +22,22 @@ const CourseCatalogScreen: React.FC = () => {
     const [sort, setSort] = useState('popular');
     const [filter, setFilter] = useState<Partial<FilterState>>({});
     const [search, setSearch] = useState('');
+    const [pagination, setPagination] = useState({
+        currentPage: 1,
+        totalPages: 1,
+        totalCourses: 0,
+        hasNextPage: false,
+        hasPrevPage: false
+    });
 
     useEffect(() => {
         setLoading(true);
-        fetchCourses().then(data => {
-            setCourses(data);
+        fetchCoursesWithPagination(page, PAGE_SIZE).then(data => {
+            setCourses(data.courses);
+            setPagination(data.pagination);
             setLoading(false);
         });
-    }, []);
+    }, [page]);
 
     const filteredCourses = useMemo(() => {
         let result = [...courses];
@@ -52,9 +60,6 @@ const CourseCatalogScreen: React.FC = () => {
         return result;
     }, [courses, filter, sort]);
 
-    const totalPages = Math.ceil(filteredCourses.length / PAGE_SIZE);
-    const pagedCourses = filteredCourses.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
-
     return (
         <>
             <Navbar />
@@ -67,14 +72,14 @@ const CourseCatalogScreen: React.FC = () => {
                             <CourseList
                                 search={search}
                                 setSearch={setSearch}
-                                courses={pagedCourses}
+                                courses={filteredCourses}
                                 loading={loading}
                                 sort={sort}
                                 setSort={setSort}
-                                page={page}
+                                page={pagination.currentPage}
                                 setPage={setPage}
-                                totalPages={totalPages}
-                                totalCourses={filteredCourses.length}
+                                totalPages={pagination.totalPages}
+                                totalCourses={pagination.totalCourses}
                             />
                         </div>
                     </div>
