@@ -12,9 +12,12 @@ const Navbar: React.FC = () => {
                 <li>
                     <Link to="/courses" style={{ color: location.pathname.startsWith('/courses') ? '#304ffe' : undefined, fontWeight: location.pathname.startsWith('/courses') ? 700 : 600, textDecoration: 'none' }}>Khóa học</Link>
                 </li>
-                <li>Bảng giá</li>
-                <li>Cho doanh nghiệp</li>
-                <li>Thêm</li>
+                <li>
+                    <Link to="/favorites" style={{ color: location.pathname.startsWith('/favorites') ? '#304ffe' : undefined, fontWeight: location.pathname.startsWith('/favorites') ? 700 : 600, textDecoration: 'none' }}>Yêu thích</Link>
+                </li>
+                <li>
+                    <Link to="/history" style={{ color: location.pathname.startsWith('/history') ? '#304ffe' : undefined, fontWeight: location.pathname.startsWith('/history') ? 700 : 600, textDecoration: 'none' }}>Lịch sử xem</Link>
+                </li>
             </ul>
             <div className={styles.actions}>
                 <Button

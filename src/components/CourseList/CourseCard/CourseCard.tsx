@@ -7,6 +7,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import PersonIcon from '@mui/icons-material/Person';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Link } from 'react-router-dom';
+import { useFavorites } from '../../../hooks/useFavorites';
+import { useViewedCourses } from '../../../hooks/useViewedCourses';
 
 interface CourseCardProps {
     course: {
@@ -37,13 +39,15 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
         duration = '12 giờ',
         badge,
     } = course as any;
-    const [favorite, setFavorite] = useState(false);
+    const { favorites, toggleFavorite } = useFavorites();
+    const isFavorite = favorites.includes(course.id);
     const handleFavorite = (e: React.MouseEvent) => {
         e.stopPropagation();
-        setFavorite((prev) => !prev);
+        toggleFavorite(course.id);
     };
+    const { addViewedCourse } = useViewedCourses();
     return (
-        <Link to={`/courses/${course.id}`} style={{ textDecoration: 'none' }}>
+        <div style={{ textDecoration: 'none' }}>
             <Card className={styles.courseCard} elevation={0} tabIndex={0} aria-label={`Khóa học: ${title}`}>
                 <div className={styles.imageWrapper}>
                     <CardMedia
@@ -58,13 +62,21 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
                     )}
                     <IconButton
                         className={styles.favoriteBtn}
-                        aria-label={favorite ? 'Bỏ yêu thích' : 'Thêm vào yêu thích'}
+                        aria-label={isFavorite ? 'Bỏ yêu thích' : 'Thêm vào yêu thích'}
                         onClick={handleFavorite}
+                        tabIndex={0}
                     >
-                        {favorite ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
+                        {isFavorite ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
                     </IconButton>
                 </div>
-                <CardContent className={styles.content}>
+                <CardContent
+                    className={styles.content}
+                    onClick={() => {
+                        addViewedCourse(course.id);
+                        window.location.href = `/courses/${course.id}`;
+                    }}
+                    style={{ cursor: 'pointer' }}
+                >
                     <div className={styles.title} title={title}>{title}</div>
                     <div className={styles.description}>{description}</div>
                     <div className={styles.infoBlock}>
@@ -83,7 +95,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
                     </div>
                 </CardContent>
             </Card>
-        </Link>
+        </div>
     );
 };
 

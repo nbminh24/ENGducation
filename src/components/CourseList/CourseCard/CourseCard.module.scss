@@ -54,14 +54,16 @@
     position: absolute !important;
     top: 12px;
     right: 12px;
-    background: #fff;
+    background: #fff !important;
     border-radius: 50%;
+    border: 2px solid #e0e3eb;
     box-shadow: 0 2px 8px rgba(53, 64, 232, 0.10);
-    transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
+    transition: background 0.18s, box-shadow 0.18s, transform 0.18s, border 0.18s;
     z-index: 2;
 
     &:hover {
-        background: #ffe6ec;
+        background: #fff !important;
+        border-color: #ffd580;
         box-shadow: 0 4px 16px rgba(255, 64, 129, 0.12);
         transform: scale(1.08);
     }
