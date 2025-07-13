@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import styles from './CourseList.module.scss';
 import CourseCard from './CourseCard/CourseCard';
 import { mockCourses } from '../../services/mockApi';
-import { Tabs, Tab } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-
-const tabLabels = ['Phổ biến nhất', 'Được đánh giá cao', 'Yêu thích cho người mới', 'Khóa học mới'];
 
 interface CourseListProps {
     search: string;
@@ -19,6 +16,7 @@ interface CourseListProps {
     totalPages?: number;
     totalCourses?: number;
     showSearch?: boolean;
+    hideHeaderTabs?: boolean;
 }
 
 const CourseList: React.FC<CourseListProps> = ({
@@ -32,37 +30,33 @@ const CourseList: React.FC<CourseListProps> = ({
     setPage,
     totalPages,
     totalCourses,
-    showSearch = true
+    showSearch = true,
+    hideHeaderTabs = false
 }) => {
-    const [tab, setTab] = useState(0);
     // Nếu không truyền prop courses thì dùng mockCourses (HomeScreen)
     const displayCourses = courses || mockCourses;
 
     return (
         <section className={styles.courseList}>
-            <div className={styles.header}>
-                <h2>Khóa học nổi bật cho bạn</h2>
-                <div className={styles.subtitle}>Khám phá lộ trình học tập phù hợp với bạn</div>
-                {/* Thanh tìm kiếm */}
-                {showSearch && (
-                    <div className={styles.searchWrapper}>
-                        <SearchIcon className={styles.searchIcon} />
-                        <input
-                            type="text"
-                            value={search}
-                            onChange={e => setSearch(e.target.value)}
-                            placeholder="Tìm kiếm khóa học..."
-                            className={styles.searchInput}
-                        />
-                    </div>
-                )}
-                {/* Tabs */}
-                <Tabs value={tab} onChange={(_, v) => setTab(v)} className={styles.tabs} variant="scrollable" scrollButtons="auto">
-                    {tabLabels.map((label, idx) => (
-                        <Tab key={label} label={label} />
-                    ))}
-                </Tabs>
-            </div>
+            {!hideHeaderTabs && (
+                <div className={styles.header}>
+                    <h2>Khóa học nổi bật cho bạn</h2>
+                    <div className={styles.subtitle}>Khám phá lộ trình học tập phù hợp với bạn</div>
+                    {/* Thanh tìm kiếm */}
+                    {showSearch && (
+                        <div className={styles.searchWrapper}>
+                            <SearchIcon className={styles.searchIcon} />
+                            <input
+                                type="text"
+                                value={search}
+                                onChange={e => setSearch(e.target.value)}
+                                placeholder="Tìm kiếm khóa học..."
+                                className={styles.searchInput}
+                            />
+                        </div>
+                    )}
+                </div>
+            )}
             {/* Số lượng khóa học và sort (nếu có) */}
             {(typeof totalCourses === 'number' || sort) && (
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
