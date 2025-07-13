@@ -1,0 +1,82 @@
+@import '../../styles/variables.scss';
+
+.newsletter {
+    background: rgba(246, 247, 250, 0.85);
+    border-radius: 32px;
+    box-shadow: 0 8px 32px rgba(53, 64, 232, 0.06);
+    backdrop-filter: blur(8px);
+    padding: 28px 0 18px 0; // giảm padding trên/dưới
+    text-align: center;
+    margin: 18px auto 0 auto; // giảm margin trên
+    max-width: 900px;
+    border: none;
+}
+
+.title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #3540e8;
+    margin-bottom: 18px;
+}
+
+.desc {
+    color: #0d063e;
+    font-size: 1.08rem;
+    margin-bottom: 32px;
+    opacity: 0.92;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    max-width: 480px;
+    margin: 0 auto;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.input {
+    flex: 1;
+    min-width: 180px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1.5px solid #e0e3eb;
+    box-shadow: none;
+    transition: border 0.2s;
+    font-size: 1.08rem;
+    color: #222;
+
+    &::placeholder {
+        color: #b0b3c6;
+        opacity: 1;
+    }
+
+    &:focus {
+        border: 1.5px solid #304ffe;
+        outline: none;
+        background: #fff;
+    }
+}
+
+.btn {
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 12px 38px;
+    background: #304ffe;
+    color: #fff;
+    box-shadow: none;
+    text-transform: none;
+    font-size: 1.13rem;
+    transition: none;
+
+    &:hover {
+        background: #304ffe;
+        color: #fff;
+        box-shadow: none;
+    }
+}

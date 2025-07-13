@@ -1,0 +1,93 @@
+.recommendSection {
+    padding: 1.5rem 0 0.5rem 0;
+    position: relative;
+}
+
+.title {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1.1rem;
+    font-family: 'Inter', 'Poppins', 'Be Vietnam Pro', 'Roboto', sans-serif;
+}
+
+.courseRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    align-items: stretch;
+}
+
+.cardWrapper {
+    height: 100%;
+    display: flex;
+}
+
+.viewMoreCardWrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.viewMoreContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+.viewMoreButton {
+    background: transparent;
+    border: none;
+    color: #3b82f6;
+    padding: 0.6rem 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Inter', 'Poppins', 'Be Vietnam Pro', 'Roboto', sans-serif;
+}
+
+.viewMoreButton:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.viewMoreButton:active {
+    transform: translateY(1px);
+}
+
+@media (max-width: 1100px) {
+    .courseRow {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .courseRow {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .courseRow {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .cardWrapper {
+        min-width: 260px;
+        flex: 0 0 auto;
+    }
+
+    .viewMoreCardWrapper {
+        margin-top: 1rem;
+    }
+
+    .viewMoreButton {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}

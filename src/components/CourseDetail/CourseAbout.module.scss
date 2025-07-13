@@ -1,0 +1,156 @@
+.aboutRoot {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.cardSection {
+    background: #fff;
+    border-radius: 1.25rem;
+    box-shadow: 0 2px 12px 0 rgba(30, 41, 59, 0.07);
+    padding: 1.2rem 1rem;
+    margin-bottom: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.sectionTitleRow {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 0.2em;
+}
+
+.sectionIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+    border-radius: 9999px;
+    width: 2.2rem;
+    height: 2.2rem;
+
+    svg {
+        font-size: 1.3rem;
+        color: #2563eb;
+    }
+}
+
+.sectionTitle {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1e293b;
+    font-family: 'Inter', 'Poppins', 'Be Vietnam Pro', 'Roboto', sans-serif;
+}
+
+.sectionContent {
+    color: #64748b;
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.7;
+    margin-bottom: 0.2em;
+}
+
+.welcome {
+    display: block;
+    color: #2563eb;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+    font-size: 1.08rem;
+}
+
+.highlightsRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.2em;
+}
+
+.highlightPill {
+    background: #eef2ff;
+    color: #3730a3;
+    font-size: 0.98rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    padding: 0.5em 1.3em;
+    margin-bottom: 0.2em;
+    box-shadow: 0 1px 4px 0 rgba(99, 102, 241, 0.07);
+    letter-spacing: 0.01em;
+}
+
+.outcomesCol {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    margin-top: 0.2em;
+}
+
+.outcomeRow {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+}
+
+.outcomeNum {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    background: #dbeafe;
+    color: #2563eb;
+    border-radius: 50%;
+    font-weight: 500;
+    font-size: 1rem;
+    box-shadow: 0 1px 4px 0 rgba(37, 99, 235, 0.08);
+}
+
+.outcomeText {
+    color: #334155;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.closingNote {
+    color: #64748b;
+    background: #f8fafc;
+    border-radius: 0.75rem;
+    padding: 1.1em 1.5em;
+    font-size: 1.04rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 0.5em;
+    box-shadow: 0 1px 4px 0 rgba(30, 41, 59, 0.04);
+}
+
+@media (max-width: 700px) {
+    .cardSection {
+        padding: 0.8rem 0.5rem;
+    }
+
+    .sectionTitle {
+        font-size: 1rem;
+    }
+
+    .highlightPill {
+        font-size: 0.93rem;
+        padding: 0.4em 1em;
+    }
+
+    .outcomeNum {
+        width: 1.6rem;
+        height: 1.6rem;
+        font-size: 0.9rem;
+    }
+
+    .outcomeText {
+        font-size: 0.97rem;
+    }
+
+    .closingNote {
+        font-size: 0.97rem;
+        padding: 0.8em 0.7em;
+    }
+}

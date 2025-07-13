@@ -1,0 +1,37 @@
+@import './variables.scss';
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: $font-main;
+    font-size: $font-size-base;
+    background: $background-color;
+    color: $text-color;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+        color: $accent-color;
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}

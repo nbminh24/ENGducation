@@ -1,0 +1,210 @@
+.headerCard {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 2px 16px 0 rgba(30, 41, 59, 0.08);
+    padding: 2rem;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        gap: 2.5rem;
+        padding: 2.5rem 3rem;
+    }
+}
+
+.imageSection {
+    flex: 1 1 320px;
+    max-width: 340px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.image {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px 0 rgba(30, 41, 59, 0.10);
+    object-fit: cover;
+    aspect-ratio: 1.2/1;
+    background: #f3f4f6;
+}
+
+.levelBadge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background: #ffedd5;
+    color: #ea580c;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    padding: 0.25rem 0.75rem;
+    box-shadow: 0 1px 4px 0 rgba(255, 183, 77, 0.10);
+    z-index: 2;
+    letter-spacing: 0.01em;
+}
+
+.ratingBadge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: #fde68a;
+    color: #b45309;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    padding: 0.18rem 0.7rem 0.18rem 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    box-shadow: 0 2px 8px 0 rgba(251, 191, 36, 0.10);
+    z-index: 2;
+
+    .ratingStar {
+        font-size: 1rem !important;
+        color: #fbbf24 !important;
+        margin-right: 0.15em;
+    }
+}
+
+.infoSection {
+    flex: 2 1 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 0.2em;
+    font-family: 'Inter', 'Poppins', 'Be Vietnam Pro', 'Roboto', sans-serif;
+
+    @media (min-width: 768px) {
+        font-size: 2rem;
+    }
+}
+
+.metaRow {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.97rem;
+    color: #64748b;
+    font-weight: 500;
+    margin-bottom: 0.2em;
+    flex-wrap: wrap;
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    background: #f3f4f6;
+    border-radius: 9999px;
+    padding: 0.13em 0.7em 0.13em 0.5em;
+    font-size: 0.97em;
+
+    svg {
+        font-size: 1.1em;
+        color: #94a3b8;
+        background: #fff;
+        border-radius: 50%;
+        padding: 2px;
+    }
+}
+
+.metaDot {
+    color: #cbd5e1;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin: 0 0.1em;
+}
+
+.priceRow {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 0.5em 0 0.2em 0;
+    flex-wrap: wrap;
+}
+
+.priceBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+}
+
+.oldPrice {
+    color: #a3a3a3;
+    text-decoration: line-through;
+    font-size: 0.98rem;
+    font-weight: 500;
+}
+
+.price {
+    color: #2563eb;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+
+    @media (min-width: 768px) {
+        font-size: 1.45rem;
+    }
+}
+
+.saveBadge {
+    background: #ffedd5;
+    color: #ea580c;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    padding: 0.25em 0.9em;
+    margin-left: 0.2em;
+    letter-spacing: 0.01em;
+}
+
+.buyBtn {
+    background: #2563eb;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 0.7rem;
+    padding: 0.7em 2.2em;
+    font-size: 1.08rem;
+    box-shadow: 0 2px 8px 0 rgba(37, 99, 235, 0.10);
+    margin-left: auto;
+    transition: background 0.18s, box-shadow 0.18s;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+        background: #1d4ed8;
+        box-shadow: 0 4px 16px 0 rgba(37, 99, 235, 0.18);
+    }
+
+    &:focus {
+        outline: 2px solid #60a5fa;
+        outline-offset: 2px;
+    }
+}
+
+.shortDesc {
+    color: #64748b;
+    font-size: 1.01rem;
+    font-weight: 500;
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+    line-height: 1.6;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 0.7em;
+}
