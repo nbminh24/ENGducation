@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './CourseList.module.scss';
 import CourseCard from './CourseCard/CourseCard';
-import { fetchCourses, mockCourses } from '../../services/mockApi';
-import { Tabs, Tab, Box, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { mockCourses } from '../../services/mockApi';
+import { Tabs, Tab } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 const tabLabels = ['Phổ biến nhất', 'Được đánh giá cao', 'Yêu thích cho người mới', 'Khóa học mới'];

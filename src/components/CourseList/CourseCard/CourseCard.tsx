@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './CourseCard.module.scss';
 import { Card, CardMedia, CardContent, IconButton, Button, Chip } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import PersonIcon from '@mui/icons-material/Person';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { Link } from 'react-router-dom';
 import { useFavorites } from '../../../hooks/useFavorites';
 import { useViewedCourses } from '../../../hooks/useViewedCourses';
 

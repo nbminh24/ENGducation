@@ -24,7 +24,8 @@ const CourseReviews: React.FC<CourseReviewsProps> = ({ reviews }) => {
     const [sortBy, setSortBy] = useState<'date' | 'rating' | 'helpful'>('date');
     const [showFilters, setShowFilters] = useState(false);
 
-    const safeReviews = Array.isArray(reviews) ? reviews : [];
+    // Bọc safeReviews bằng useMemo để reference không đổi
+    const safeReviews = useMemo(() => Array.isArray(reviews) ? reviews : [], [reviews]);
 
     const avgRating = useMemo(() => {
         if (safeReviews.length === 0) return null;
