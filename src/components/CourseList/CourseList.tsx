@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './CourseList.module.scss';
 import CourseCard from './CourseCard/CourseCard';
 import { mockCourses } from '../../services/mockApi';
