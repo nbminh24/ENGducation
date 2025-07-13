@@ -8,8 +8,9 @@ import CourseCatalogSidebar from '../../components/CourseCatalog/CourseCatalogSi
 import CourseList from '../../components/CourseList/CourseList';
 
 interface FilterState {
-    rating: number;
-    topic: string;
+    price?: string;
+    rating?: number[];
+    topic?: string;
 }
 
 const PAGE_SIZE = 9;
@@ -32,8 +33,19 @@ const CourseCatalogScreen: React.FC = () => {
 
     const filteredCourses = useMemo(() => {
         let result = [...courses];
-        if (filter.rating) result = result.filter(c => c.rating >= filter.rating!);
+        // Lọc theo giá
+        if (filter.price) {
+            if (filter.price === 'lt500') result = result.filter(c => c.price < 500000);
+            else if (filter.price === '500to1m') result = result.filter(c => c.price >= 500000 && c.price <= 1000000);
+            else if (filter.price === 'gt1m') result = result.filter(c => c.price > 1000000);
+        }
+        // Lọc theo rating (cho phép chọn nhiều rating)
+        if (Array.isArray(filter.rating) && filter.rating.length > 0) {
+            result = result.filter(c => filter.rating && filter.rating.includes(Math.round(c.rating)));
+        }
+        // Lọc theo topic nếu có
         if (filter.topic) result = result.filter(c => c.category === filter.topic);
+        // Sắp xếp
         if (sort === 'popular') result = result.sort((a, b) => b.reviews - a.reviews);
         if (sort === 'newest') result = result.sort((a, b) => b.id - a.id);
         if (sort === 'rating') result = result.sort((a, b) => b.rating - a.rating);
