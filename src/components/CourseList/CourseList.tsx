@@ -77,7 +77,20 @@ const CourseList: React.FC<CourseListProps> = ({
                     {displayCourses.map(course => (
                         <CourseCard key={course.id} course={course} />
                     ))}
-                    {displayCourses.length === 0 && <div style={{ gridColumn: '1/4', textAlign: 'center', color: '#b0b3c6' }}>Không có khóa học phù hợp.</div>}
+                    {displayCourses.length === 0 && (
+                        <div style={{
+                            gridColumn: '1/-1',
+                            textAlign: 'center',
+                            color: '#b0b3c6',
+                            padding: '48px 24px',
+                            fontSize: '1.1rem'
+                        }}>
+                            {search.trim() ?
+                                `Không tìm thấy khóa học nào phù hợp với "${search}"` :
+                                'Không có khóa học phù hợp.'
+                            }
+                        </div>
+                    )}
                 </div>
             )}
             {/* Pagination nếu có */}

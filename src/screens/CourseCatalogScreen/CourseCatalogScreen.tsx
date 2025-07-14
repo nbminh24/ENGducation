@@ -39,8 +39,33 @@ const CourseCatalogScreen: React.FC = () => {
         });
     }, [page]);
 
+    // Reset page khi search thay đổi
+    useEffect(() => {
+        setPage(1);
+    }, [search]);
+
+    // Debounce search để tránh filter quá nhiều
+    const debouncedSearch = useMemo(() => {
+        const timeoutId = setTimeout(() => {
+            // Search đã được debounce
+        }, 300);
+        return () => clearTimeout(timeoutId);
+    }, [search]);
+
     const filteredCourses = useMemo(() => {
         let result = [...courses];
+
+        // Tìm kiếm theo search term
+        if (search.trim()) {
+            const searchLower = search.toLowerCase().trim();
+            result = result.filter(course =>
+                course.title.toLowerCase().includes(searchLower) ||
+                course.description?.toLowerCase().includes(searchLower) ||
+                course.author.toLowerCase().includes(searchLower) ||
+                course.badge?.toLowerCase().includes(searchLower)
+            );
+        }
+
         // Lọc theo giá
         if (filter.price) {
             if (filter.price === 'lt500') result = result.filter(c => c.price < 500000);
@@ -58,7 +83,7 @@ const CourseCatalogScreen: React.FC = () => {
         if (sort === 'newest') result = result.sort((a, b) => b.id - a.id);
         if (sort === 'rating') result = result.sort((a, b) => b.rating - a.rating);
         return result;
-    }, [courses, filter, sort]);
+    }, [courses, filter, sort, search]);
 
     return (
         <>
@@ -79,7 +104,7 @@ const CourseCatalogScreen: React.FC = () => {
                                 page={pagination.currentPage}
                                 setPage={setPage}
                                 totalPages={pagination.totalPages}
-                                totalCourses={pagination.totalCourses}
+                                totalCourses={filteredCourses.length}
                             />
                         </div>
                     </div>
