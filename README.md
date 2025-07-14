@@ -80,7 +80,6 @@ ENGducation là một sàn thương mại khóa học tiếng Anh hiện đại,
 ### Bước 1: Clone repository
 ```bash
 git clone https://github.com/your-username/fe_engducation.git
-cd fe_engducation
 ```
 
 ### Bước 2: Cài đặt dependencies
