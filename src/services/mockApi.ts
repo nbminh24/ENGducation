@@ -50,6 +50,29 @@ export const mockCourses = [
         lessons: 30,
         duration: '20 giờ',
         badge: 'IELTS',
+        about: 'Khóa học giúp bạn nâng cao kỹ năng Listening & Writing cho kỳ thi IELTS.',
+        curriculum: [
+            { week: 1, topic: 'Giới thiệu về IELTS Listening' },
+            { week: 2, topic: 'Chiến lược làm bài Listening' },
+            { week: 3, topic: 'Writing Task 1' },
+            { week: 4, topic: 'Writing Task 2' }
+        ],
+        faq: [
+            { question: 'Khóa học này có phù hợp cho người mới bắt đầu không?', answer: 'Khóa học phù hợp cho mọi trình độ.' },
+            { question: 'Có bài tập thực hành không?', answer: 'Có, mỗi buổi đều có bài tập thực hành.' }
+        ],
+        reviews: [
+            { user: 'Nguyễn Văn D', rating: 5, comment: 'Nội dung rất sát đề thi.' },
+            { user: 'Lê Thị E', rating: 4, comment: 'Giáo viên hỗ trợ tốt.' }
+        ],
+        resources: [
+            { name: 'Tài liệu PDF Listening', url: '/resources/ielts_listening.pdf' },
+            { name: 'Audio luyện nghe IELTS', url: '/resources/ielts_audio.mp3' }
+        ],
+        discussions: [
+            { user: 'Trần Văn F', content: 'Có ai luyện đề cùng không?', time: '3 ngày trước' },
+            { user: 'Phạm Thị G', content: 'Task 2 nên viết bao nhiêu từ?', time: '2 ngày trước' }
+        ]
     },
     {
         id: 3,
@@ -63,6 +86,27 @@ export const mockCourses = [
         lessons: 18,
         duration: '10 giờ',
         badge: 'Beginner',
+        about: 'Khóa học xây dựng nền tảng tiếng Anh vững chắc cho người mới.',
+        curriculum: [
+            { week: 1, topic: 'Bảng chữ cái & phát âm' },
+            { week: 2, topic: 'Từ vựng cơ bản' },
+            { week: 3, topic: 'Cấu trúc câu đơn giản' },
+            { week: 4, topic: 'Giao tiếp cơ bản' }
+        ],
+        faq: [
+            { question: 'Có cần biết tiếng Anh trước không?', answer: 'Không, khóa này dành cho người mới hoàn toàn.' },
+            { question: 'Có bài kiểm tra không?', answer: 'Có, cuối mỗi tuần đều có bài kiểm tra.' }
+        ],
+        reviews: [
+            { user: 'Nguyễn Thị H', rating: 5, comment: 'Dễ hiểu, phù hợp cho người mất gốc.' },
+            { user: 'Lê Văn I', rating: 4, comment: 'Bài giảng sinh động.' }
+        ],
+        resources: [
+            { name: 'Tài liệu PDF cơ bản', url: '/resources/basic_english.pdf' }
+        ],
+        discussions: [
+            { user: 'Nguyễn Văn J', content: 'Có nhóm học chung không?', time: '1 ngày trước' }
+        ]
     },
     {
         id: 4,
@@ -76,6 +120,24 @@ export const mockCourses = [
         lessons: 22,
         duration: '14 giờ',
         badge: 'Business',
+        about: 'Khóa học giúp bạn tự tin giao tiếp trong môi trường doanh nghiệp.',
+        curriculum: [
+            { week: 1, topic: 'Giao tiếp trong công sở' },
+            { week: 2, topic: 'Email & hội họp' },
+            { week: 3, topic: 'Thuyết trình & đàm phán' }
+        ],
+        faq: [
+            { question: 'Khóa này có phù hợp cho người đi làm không?', answer: 'Rất phù hợp cho người đi làm.' }
+        ],
+        reviews: [
+            { user: 'Lê Thị K', rating: 5, comment: 'Áp dụng được ngay vào công việc.' }
+        ],
+        resources: [
+            { name: 'Tài liệu PDF Business', url: '/resources/business.pdf' }
+        ],
+        discussions: [
+            { user: 'Phạm Văn L', content: 'Có case study thực tế không?', time: '5 ngày trước' }
+        ]
     },
     {
         id: 5,
@@ -89,6 +151,23 @@ export const mockCourses = [
         lessons: 16,
         duration: '8 giờ',
         badge: 'Pronunciation',
+        about: 'Khóa học luyện phát âm chuẩn, cải thiện kỹ năng nghe nói.',
+        curriculum: [
+            { week: 1, topic: 'Nguyên âm & phụ âm' },
+            { week: 2, topic: 'Trọng âm & ngữ điệu' }
+        ],
+        faq: [
+            { question: 'Có giáo viên bản xứ không?', answer: 'Có buổi giao lưu với giáo viên bản xứ.' }
+        ],
+        reviews: [
+            { user: 'Nguyễn Thị M', rating: 5, comment: 'Phát âm tiến bộ rõ rệt.' }
+        ],
+        resources: [
+            { name: 'Audio luyện phát âm', url: '/resources/pronunciation.mp3' }
+        ],
+        discussions: [
+            { user: 'Lê Văn N', content: 'Có bài tập về nhà không?', time: '2 ngày trước' }
+        ]
     },
     {
         id: 6,
@@ -102,6 +181,23 @@ export const mockCourses = [
         lessons: 20,
         duration: '11 giờ',
         badge: 'Office',
+        about: 'Khóa học tiếng Anh dành cho môi trường văn phòng.',
+        curriculum: [
+            { week: 1, topic: 'Giao tiếp với đồng nghiệp' },
+            { week: 2, topic: 'Viết email chuyên nghiệp' }
+        ],
+        faq: [
+            { question: 'Có thực hành tình huống không?', answer: 'Có nhiều tình huống thực tế.' }
+        ],
+        reviews: [
+            { user: 'Phạm Thị O', rating: 4, comment: 'Nội dung sát thực tế.' }
+        ],
+        resources: [
+            { name: 'Tài liệu Office', url: '/resources/office.pdf' }
+        ],
+        discussions: [
+            { user: 'Nguyễn Văn P', content: 'Có lớp học tối không?', time: '3 ngày trước' }
+        ]
     },
     {
         id: 7,
@@ -115,6 +211,23 @@ export const mockCourses = [
         lessons: 14,
         duration: '7 giờ',
         badge: 'Travel',
+        about: 'Khóa học giúp bạn giao tiếp tự tin khi đi du lịch.',
+        curriculum: [
+            { week: 1, topic: 'Từ vựng du lịch' },
+            { week: 2, topic: 'Tình huống ở sân bay, khách sạn' }
+        ],
+        faq: [
+            { question: 'Có học về giao tiếp khẩn cấp không?', answer: 'Có, có phần giao tiếp khẩn cấp.' }
+        ],
+        reviews: [
+            { user: 'Lê Thị Q', rating: 5, comment: 'Đi du lịch tự tin hơn nhiều.' }
+        ],
+        resources: [
+            { name: 'Tài liệu Travel', url: '/resources/travel.pdf' }
+        ],
+        discussions: [
+            { user: 'Bùi Văn R', content: 'Có chia sẻ kinh nghiệm du lịch không?', time: '1 ngày trước' }
+        ]
     },
     {
         id: 8,
@@ -128,6 +241,23 @@ export const mockCourses = [
         lessons: 18,
         duration: '9 giờ',
         badge: 'Listening',
+        about: 'Khóa học luyện nghe hiệu quả qua các chủ đề thực tế.',
+        curriculum: [
+            { week: 1, topic: 'Nghe chủ đề đời sống' },
+            { week: 2, topic: 'Nghe chủ đề công việc' }
+        ],
+        faq: [
+            { question: 'Có file audio không?', answer: 'Có nhiều file audio thực hành.' }
+        ],
+        reviews: [
+            { user: 'Nguyễn Văn S', rating: 4, comment: 'Nghe tốt hơn sau khoá này.' }
+        ],
+        resources: [
+            { name: 'Audio Listening', url: '/resources/listening.mp3' }
+        ],
+        discussions: [
+            { user: 'Vũ Thị T', content: 'Có bài tập nhóm không?', time: '2 ngày trước' }
+        ]
     },
     {
         id: 9,
@@ -141,6 +271,23 @@ export const mockCourses = [
         lessons: 28,
         duration: '16 giờ',
         badge: 'IELTS',
+        about: 'Khóa học luyện nói IELTS với giám khảo thực tế.',
+        curriculum: [
+            { week: 1, topic: 'Speaking Part 1' },
+            { week: 2, topic: 'Speaking Part 2 & 3' }
+        ],
+        faq: [
+            { question: 'Có luyện thi thử không?', answer: 'Có nhiều đề thi thử.' }
+        ],
+        reviews: [
+            { user: 'Sarah Lee', rating: 5, comment: 'Cải thiện kỹ năng nói rõ rệt.' }
+        ],
+        resources: [
+            { name: 'Tài liệu Speaking', url: '/resources/speaking.pdf' }
+        ],
+        discussions: [
+            { user: 'Nguyễn Văn U', content: 'Có feedback cá nhân không?', time: '1 ngày trước' }
+        ]
     },
     {
         id: 10,
@@ -154,6 +301,23 @@ export const mockCourses = [
         lessons: 20,
         duration: '12 giờ',
         badge: 'Kids',
+        about: 'Khóa học tiếng Anh vui nhộn cho trẻ em.',
+        curriculum: [
+            { week: 1, topic: 'Từ vựng chủ đề gia đình' },
+            { week: 2, topic: 'Bài hát tiếng Anh' }
+        ],
+        faq: [
+            { question: 'Có hoạt động ngoại khoá không?', answer: 'Có nhiều hoạt động ngoại khoá.' }
+        ],
+        reviews: [
+            { user: 'Emma Tran', rating: 5, comment: 'Bé nhà mình rất thích.' }
+        ],
+        resources: [
+            { name: 'Tài liệu Kids', url: '/resources/kids.pdf' }
+        ],
+        discussions: [
+            { user: 'Wilson Emma', content: 'Có lớp học thử không?', time: '3 ngày trước' }
+        ]
     },
     {
         id: 11,
@@ -167,6 +331,23 @@ export const mockCourses = [
         lessons: 24,
         duration: '15 giờ',
         badge: 'Medical',
+        about: 'Khóa học tiếng Anh chuyên ngành y tế.',
+        curriculum: [
+            { week: 1, topic: 'Từ vựng y khoa' },
+            { week: 2, topic: 'Giao tiếp với bệnh nhân' }
+        ],
+        faq: [
+            { question: 'Có bài tập tình huống không?', answer: 'Có nhiều bài tập thực tế.' }
+        ],
+        reviews: [
+            { user: 'Dr. Chen', rating: 5, comment: 'Rất hữu ích cho ngành y.' }
+        ],
+        resources: [
+            { name: 'Tài liệu Medical', url: '/resources/medical.pdf' }
+        ],
+        discussions: [
+            { user: 'Michael Chen', content: 'Có lớp chuyên sâu không?', time: '2 ngày trước' }
+        ]
     },
     {
         id: 12,
@@ -180,6 +361,23 @@ export const mockCourses = [
         lessons: 22,
         duration: '13 giờ',
         badge: 'TOEIC',
+        about: 'Khóa học luyện thi TOEIC Speaking & Writing.',
+        curriculum: [
+            { week: 1, topic: 'Speaking Part 1' },
+            { week: 2, topic: 'Writing Task 1' }
+        ],
+        faq: [
+            { question: 'Có đề thi thử không?', answer: 'Có nhiều đề thi thử.' }
+        ],
+        reviews: [
+            { user: 'David Kim', rating: 4, comment: 'Nội dung sát đề thi.' }
+        ],
+        resources: [
+            { name: 'Tài liệu TOEIC', url: '/resources/toeic.pdf' }
+        ],
+        discussions: [
+            { user: 'Kim David', content: 'Có lớp luyện phát âm không?', time: '1 ngày trước' }
+        ]
     },
     {
         id: 13,
@@ -193,6 +391,23 @@ export const mockCourses = [
         lessons: 18,
         duration: '10 giờ',
         badge: 'IT',
+        about: 'Khóa học tiếng Anh cho dân IT.',
+        curriculum: [
+            { week: 1, topic: 'Từ vựng IT' },
+            { week: 2, topic: 'Phỏng vấn bằng tiếng Anh' }
+        ],
+        faq: [
+            { question: 'Có luyện phỏng vấn không?', answer: 'Có buổi luyện phỏng vấn thực tế.' }
+        ],
+        reviews: [
+            { user: 'Alex T.', rating: 5, comment: 'Phỏng vấn thành công nhờ khoá này.' }
+        ],
+        resources: [
+            { name: 'Tài liệu IT', url: '/resources/it.pdf' }
+        ],
+        discussions: [
+            { user: 'Thompson Alex', content: 'Có học về thuật ngữ chuyên ngành không?', time: '2 ngày trước' }
+        ]
     },
     {
         id: 14,
@@ -206,6 +421,23 @@ export const mockCourses = [
         lessons: 16,
         duration: '8 giờ',
         badge: 'Academic',
+        about: 'Khóa học viết học thuật cho sinh viên.',
+        curriculum: [
+            { week: 1, topic: 'Cấu trúc bài luận' },
+            { week: 2, topic: 'Trích dẫn & tham khảo' }
+        ],
+        faq: [
+            { question: 'Có hướng dẫn viết luận không?', answer: 'Có hướng dẫn chi tiết.' }
+        ],
+        reviews: [
+            { user: 'Lisa A.', rating: 4, comment: 'Viết luận dễ dàng hơn.' }
+        ],
+        resources: [
+            { name: 'Tài liệu Writing', url: '/resources/writing.pdf' }
+        ],
+        discussions: [
+            { user: 'Anderson Lisa', content: 'Có feedback bài viết không?', time: '1 ngày trước' }
+        ]
     },
     {
         id: 15,
@@ -219,6 +451,23 @@ export const mockCourses = [
         lessons: 20,
         duration: '12 giờ',
         badge: 'Sales',
+        about: 'Khóa học tiếng Anh cho Sales & Marketing.',
+        curriculum: [
+            { week: 1, topic: 'Từ vựng marketing' },
+            { week: 2, topic: 'Giao tiếp với khách hàng' }
+        ],
+        faq: [
+            { question: 'Có học về email marketing không?', answer: 'Có phần email marketing.' }
+        ],
+        reviews: [
+            { user: 'Jennifer L.', rating: 5, comment: 'Áp dụng được ngay.' }
+        ],
+        resources: [
+            { name: 'Tài liệu Marketing', url: '/resources/marketing.pdf' }
+        ],
+        discussions: [
+            { user: 'Lee Jennifer', content: 'Có học về quảng cáo không?', time: '2 ngày trước' }
+        ]
     },
     {
         id: 16,
@@ -232,6 +481,23 @@ export const mockCourses = [
         lessons: 14,
         duration: '9 giờ',
         badge: 'Advanced',
+        about: 'Khóa học giao tiếp nâng cao với người bản xứ.',
+        curriculum: [
+            { week: 1, topic: 'Giao tiếp nâng cao' },
+            { week: 2, topic: 'Tình huống thực tế' }
+        ],
+        faq: [
+            { question: 'Có thực hành với người bản xứ không?', answer: 'Có buổi thực hành trực tiếp.' }
+        ],
+        reviews: [
+            { user: 'James W.', rating: 5, comment: 'Tự tin nói chuyện với người nước ngoài.' }
+        ],
+        resources: [
+            { name: 'Tài liệu Advanced', url: '/resources/advanced.pdf' }
+        ],
+        discussions: [
+            { user: 'Wilson James', content: 'Có lớp học thử không?', time: '1 ngày trước' }
+        ]
     },
     {
         id: 17,
@@ -245,6 +511,23 @@ export const mockCourses = [
         lessons: 26,
         duration: '14 giờ',
         badge: 'Grammar',
+        about: 'Khóa học ngữ pháp tiếng Anh từ cơ bản đến nâng cao.',
+        curriculum: [
+            { week: 1, topic: 'Thì cơ bản' },
+            { week: 2, topic: 'Câu điều kiện' }
+        ],
+        faq: [
+            { question: 'Có bài tập ngữ pháp không?', answer: 'Có nhiều bài tập thực hành.' }
+        ],
+        reviews: [
+            { user: 'Maria G.', rating: 4, comment: 'Ngữ pháp dễ hiểu.' }
+        ],
+        resources: [
+            { name: 'Tài liệu Grammar', url: '/resources/grammar.pdf' }
+        ],
+        discussions: [
+            { user: 'Garcia Maria', content: 'Có kiểm tra cuối khoá không?', time: '2 ngày trước' }
+        ]
     },
     {
         id: 18,
@@ -258,6 +541,23 @@ export const mockCourses = [
         lessons: 16,
         duration: '8 giờ',
         badge: 'Service',
+        about: 'Khóa học tiếng Anh cho dịch vụ khách hàng.',
+        curriculum: [
+            { week: 1, topic: 'Giao tiếp với khách hàng' },
+            { week: 2, topic: 'Xử lý tình huống khó' }
+        ],
+        faq: [
+            { question: 'Có học về xử lý phàn nàn không?', answer: 'Có phần xử lý phàn nàn khách hàng.' }
+        ],
+        reviews: [
+            { user: 'Robert T.', rating: 5, comment: 'Áp dụng tốt cho công việc.' }
+        ],
+        resources: [
+            { name: 'Tài liệu Service', url: '/resources/service.pdf' }
+        ],
+        discussions: [
+            { user: 'Taylor Robert', content: 'Có học thực hành không?', time: '1 ngày trước' }
+        ]
     },
 ];
 
