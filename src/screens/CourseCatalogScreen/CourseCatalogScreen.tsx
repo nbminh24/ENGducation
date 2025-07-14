@@ -44,14 +44,6 @@ const CourseCatalogScreen: React.FC = () => {
         setPage(1);
     }, [search]);
 
-    // Debounce search để tránh filter quá nhiều
-    const debouncedSearch = useMemo(() => {
-        const timeoutId = setTimeout(() => {
-            // Search đã được debounce
-        }, 300);
-        return () => clearTimeout(timeoutId);
-    }, [search]);
-
     const filteredCourses = useMemo(() => {
         let result = [...courses];
 
